@@ -20,7 +20,7 @@
               <hr>
               <li>
                 <a href="#">
-                  <router-link to="/Agenda">
+                  <router-link to="/">
                   <i class="fa-solid fa-calendar-days"></i>
                   <span class="links_name">Agenda</span>
                   </router-link>
