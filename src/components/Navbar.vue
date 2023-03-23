@@ -29,14 +29,16 @@
               </li>
               <li>
                 <a href="#">
+                  <router-link to="/caixa">
                   <i class="fa-solid fa-basket-shopping"></i>
                   <span class="links_name">Caixa</span>
+                 </router-link>
                 </a>
                 <span class="tooltip">Caixa</span>
               </li>
               <li>
                 <a href="#">
-                  <router-link to="/Clientes">
+                  <router-link to="/clientes">
                   <i class="fa-solid fa-users"></i>
                   <span class="links_name">Clientes</span>
                   </router-link>
@@ -45,23 +47,29 @@
               </li>
               <li>
                 <a href="#">
+                  <router-link to="/pets">
                   <i class="fa-solid fa-dog"></i>
                   <span class="links_name">Pets</span>
+                 </router-link>
                 </a>
                 <span class="tooltip">Pets</span>
               </li>
               <li>
                 <a href="#">
+                  <router-link to="/estoque">
                   <i class="fa-solid fa-box"></i>
                   <span class="links_name">Estoque</span>
+                </router-link>
                 </a>
                 <span class="tooltip">Estoque</span>
               </li>
               <hr>
               <li>
                 <a href="#">
+                  <router-link to="/config">
                   <i class="fa-solid fa-gear"></i>
                   <span class="links_name">Configurações</span>
+                </router-link>
                 </a>
                 <span class="tooltip">Configurações</span>
               </li>
