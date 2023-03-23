@@ -82,8 +82,6 @@
 </script>
 
 <style>
-
-
 #fade {
   position: fixed;
   top: 0;
@@ -206,5 +204,18 @@ form{
 
 #modal.hide {
   top: 0;
+}
+
+@media screen and (max-width: 750px){
+  .inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-inputs input, .form-inputs input[type=date], .form-inputs input[type=time]{
+    width: 250px;
+  }
+
 }
 </style>
