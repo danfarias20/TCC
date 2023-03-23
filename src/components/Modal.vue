@@ -97,7 +97,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
+  width: 525px;
   max-width: 90%;
   background-color: #4D72D6;
   padding: 1.2rem;
@@ -184,7 +184,8 @@ form{
 }
 
 .form-inputs input{
-  width: 200px;
+  width: 220px;
+  height: 35px;
   border: none;
   border-radius: 10px;
   padding: 10px;
@@ -193,7 +194,7 @@ form{
 }
 
 .form-inputs input[type=date], .form-inputs input[type=time]{
-  width: 200px
+  width: 220px
 }
 
 #modal.hide,
