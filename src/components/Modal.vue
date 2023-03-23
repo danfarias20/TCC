@@ -191,6 +191,7 @@ form{
   padding: 10px;
   box-shadow: 0 .4rem .8rem #0005;
   font-size: 0.9em;
+  background-color: #fff;
 }
 
 .form-inputs input[type=date], .form-inputs input[type=time]{
