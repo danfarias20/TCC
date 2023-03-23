@@ -4,7 +4,7 @@ import ClientesView from '../views/ClientesView.vue'
 
 const routes = [
   {
-    path: '/agenda',
+    path: '/',
     name: 'Agenda',
     component: AgendaView
   },
