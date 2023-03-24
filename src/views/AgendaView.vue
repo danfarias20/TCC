@@ -9,8 +9,10 @@
         </div>
         <div class="content">
             <div class="main-content">
+               
                   <Modal/>
                 <div class="boxContent">
+            
                     <hr>
                     <main class="table">
                         <section class="table__body">
@@ -162,6 +164,7 @@ button:hover {
 
 .boxContent{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -450,7 +453,7 @@ color: #6c00bd;
   }
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 901px){
 
   .content{
     flex-direction: column;
@@ -475,6 +478,20 @@ color: #6c00bd;
   .left-content h3{
     color: #868585;
     margin-left: 10px
+  }
+}
+
+@media screen and (max-width: 370px){
+  #open-modal{
+    padding: 5px;
+    width: 10em;
+  }
+}
+
+@media screen and (max-width: 370px){
+  #open-modal{
+    padding: 5px;
+    width: 150px;
   }
 }
 

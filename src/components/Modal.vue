@@ -93,7 +93,7 @@
 }
 
 #modal {
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -221,9 +221,9 @@ form{
 
 }
 
-@media screen and (max-width: 650px){
+@media screen and (max-width: 350px){
   #modal{
-    margin-top: 20px;
+    margin-top: 5rem;
   }
 
 
