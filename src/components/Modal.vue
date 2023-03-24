@@ -220,4 +220,12 @@ form{
   }
 
 }
+
+@media screen and (max-width: 650px){
+  #modal{
+    margin-top: 20px;
+  }
+
+
+}
 </style>
