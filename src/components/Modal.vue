@@ -93,7 +93,7 @@
 }
 
 #modal {
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -209,6 +209,7 @@ form{
 }
 
 @media screen and (max-width: 750px){
+  
   .inputs{
     display: flex;
     flex-direction: column;
@@ -221,11 +222,11 @@ form{
 
 }
 
-@media screen and (max-width: 650px){
-  #modal{
-    margin-top: 20px;
+@media screen and (max-width: 350px){
+#modal{
+    position: absolute;
+    margin-top: 3rem;
   }
-
-
 }
+
 </style>

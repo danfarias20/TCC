@@ -409,12 +409,12 @@ color: #6c00bd;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 30px;
 }
 
 .left-content .gif{
-  width: 200px;
+  width: 50%;
 }
 
 .left-content h2{
@@ -450,7 +450,7 @@ color: #6c00bd;
   }
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 800px){
 
   .content{
     flex-direction: column;
