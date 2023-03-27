@@ -209,6 +209,7 @@ form{
 }
 
 @media screen and (max-width: 750px){
+  
   .inputs{
     display: flex;
     flex-direction: column;
@@ -222,10 +223,11 @@ form{
 }
 
 @media screen and (max-width: 350px){
-  #modal{
-    margin-top: 5rem;
-  }
 
-
+#modal{
+    position: absolute;
+    margin-top: 3rem;
 }
+}
+
 </style>
