@@ -9,10 +9,13 @@
         </div>
         <div class="content">
             <div class="main-content">
-               
                   <Modal/>
                 <div class="boxContent">
-            
+                  <div class="container-data">
+                    <button id="botao-anterior" @click="anterior"><i class="fa-solid fa-circle-arrow-left"></i></button>
+                    <span ref="data" v-text="formatarData"></span>
+                    <button id="botao-proximo" @click="proximo"><i class="fa-solid fa-circle-arrow-right"></i></button>
+                  </div>
                     <hr>
                     <main class="table">
                         <section class="table__body">
@@ -79,6 +82,11 @@ export default {
     Navbar,
     Modal
   },
+  data(){
+      return{
+        dataAtual: new Date()
+      }
+  },
   methods:{
     toggleModal(){
         const open = document.querySelector('#open-modal')
@@ -87,8 +95,40 @@ export default {
 
         modal.classList.toggle("hide");
         fade.classList.toggle("hide");
-    }
-  }
+    },
+    anterior() {
+          this.dataAtual.setDate(this.dataAtual.getDate() - 1)
+          this.atualizaData()
+        },
+        proximo() {
+          this.dataAtual.setDate(this.dataAtual.getDate() + 1)
+          this.atualizaData()
+        },
+        atualizaData() {
+          const hoje = new Date()
+          const dia = this.dataAtual.getDate()
+          const mes = this.dataAtual.getMonth() + 1
+          const ano = this.dataAtual.getFullYear()
+          if (this.dataAtual.toDateString() === hoje.toDateString()) {
+            this.$refs.data.textContent = 'Hoje'
+          } else {
+            this.$refs.data.textContent = `${dia}/${mes}/${ano}`
+          }
+        }
+      },
+      computed: {
+        formatarData() {
+          const hoje = new Date()
+          if (this.dataAtual.toDateString() === hoje.toDateString()) {
+            return 'Hoje'
+          } else {
+            const dia = this.dataAtual.getDate()
+            const mes = this.dataAtual.getMonth() + 1
+            const ano = this.dataAtual.getFullYear()
+            return `${dia}/${mes}/${ano}`
+          }
+        }
+      }
 }
 </script>
 
@@ -131,6 +171,26 @@ button:hover {
   display: flex;
   flex-direction: row;
   height: 78vh;
+}
+
+.container-data{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.container-data button{
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.container-data span{
+  margin: 0 30px;
+  font-size: 1.5em;
 }
 
 .main-content{
