@@ -223,10 +223,11 @@ form{
 }
 
 @media screen and (max-width: 350px){
+
 #modal{
     position: absolute;
     margin-top: 3rem;
-  }
+}
 }
 
 </style>
