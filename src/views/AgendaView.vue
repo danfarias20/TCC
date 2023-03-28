@@ -12,9 +12,9 @@
                   <Modal/>
                 <div class="boxContent">
                   <div class="container-data">
-                    <button id="botao-anterior" @click="anterior"><i class="fa-solid fa-circle-arrow-left"></i></button>
+                    <button id="botao-anterior" @click="anterior"><i class="fa-solid fa-circle-chevron-left"></i></button>
                     <span ref="data" v-text="formatarData"></span>
-                    <button id="botao-proximo" @click="proximo"><i class="fa-solid fa-circle-arrow-right"></i></button>
+                    <button id="botao-proximo" @click="proximo"><i class="fa-solid fa-circle-chevron-right"></i></button>
                   </div>
                     <hr>
                     <main class="table">
@@ -184,7 +184,7 @@ button:hover {
 .container-data button{
   background: none;
   border: none;
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -229,23 +229,6 @@ button:hover {
     justify-content: center;
 }
 
-.date{
-
-  padding: 15px;
-
-  outline: none;
-  text-decoration: none;
-  border: none;
-  background-color: #4D72D6;
-  color: #fff;
-
-  font-size: 20px;
-  font-weight: bold;
-
-  border-radius: 20px;
-  box-shadow: 0 .4rem .8rem #0005;
-  
-}
 
 main.table {
   width: 100%;
