@@ -1,147 +1,110 @@
 <template>
-   <section>
+  <section>
     <div class="container">
-        <div class="row">
-            <div class="titulo">
-              <h1>Agenda</h1>
-            </div>
-            <button v-on:click="toggleModal" id="open-modal"><i class="fa-regular fa-calendar-plus"></i>Novo Agendamento</button>
+      <div class="row">
+        <div class="titulo">
+          <h1>Agenda</h1>
         </div>
-        <div class="content">
-            <div class="main-content">
-                  <Modal/>
-                <div class="boxContent">
-                  <div class="container-data">
-                    <button id="botao-anterior" @click="anterior"><i class="fa-solid fa-circle-chevron-left"></i></button>
-                    <span ref="data" v-text="formatarData"></span>
-                    <button id="botao-proximo" @click="proximo"><i class="fa-solid fa-circle-chevron-right"></i></button>
-                  </div>
-                    <hr>
-                    <main class="table">
-                        <section class="table__body">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th> ID </th>
-                                        <th> Pet </th>
-                                        <th> Tutor </th>
-                                        <th> Raça </th>
-                                        <th> Valor </th>
-                                        <th> Status <span class="icon-arrow">&UpArrow;</span></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td> 1 </td>
-                                        <td> <img src="../assets/img/dog.jpg" alt="">Zinzu Chan Lee</td>
-                                        <td> Seoul </td>
-                                        <td> 17 Dec, 2022 </td>
-                                        <td> <strong> $128.90 </strong></td>
-                                        <td>
-                                            <p class="status cancelado">Cancelado</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 1 </td>
-                                        <td> <img src="../assets/img/dog.jpg" alt="">Zinzu Chan Lee</td>
-                                        <td> Seoul </td>
-                                        <td> 17 Dec, 2022 </td>
-                                        <td> <strong> $128.90 </strong></td>
-                                        <td>
-                                            <p class="status concluido">Concluido</p>
-                                        </td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
-                        </section>
-                    </main>
-                    <!--<h2>Nenhum agendamento por aqui</h2>-->
-                    <!--<img class="gif" src="assets/img/House searching_purple.gif" alt="searchGif">-->
-                </div>
+        <button v-on:click="toggleModal" id="open-modal"><i class="fa-regular fa-calendar-plus"></i>Novo
+          Agendamento</button>
+      </div>
+      <div class="content">
+        <div class="main-content">
+          <Modal />
+          <div class="boxContent">
+            <div class="container-data">
+              <button id="botao-anterior" @click="anterior"><i class="fa-solid fa-circle-chevron-left"></i></button>
+              <span ref="data" v-text="formatarData"></span>
+              <button id="botao-proximo" @click="proximo"><i class="fa-solid fa-circle-chevron-right"></i></button>
             </div>
-            <div class="left-content">
-                <h2>Agendamento</h2>
-                <h3>Nenhum agendamento selecionado</h3>
-                <img class="gif" src="../assets/img/blue.gif" alt="searchGif">
-                <h3>Selecione um agendamento para visualizar os detalhes</h3>
-            </div>
+            <hr>
+            <tabela />
+          </div>
         </div>
+        <div class="left-content">
+          <h2>Agendamento</h2>
+          <h3>Nenhum agendamento selecionado</h3>
+          <img class="gif" src="../assets/img/blue.gif" alt="searchGif">
+          <h3>Selecione um agendamento para visualizar os detalhes</h3>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Modal from '@/components/Modal.vue';
+import tabela from '@/components/tabela.vue';
 
 export default {
   name: 'Agenda',
   components: {
     Navbar,
-    Modal
+    Modal,
+    tabela
   },
-  data(){
-      return{
-        dataAtual: new Date()
-      }
+  data() {
+    return {
+      dataAtual: new Date()
+    }
   },
-  methods:{
-    toggleModal(){
-        const open = document.querySelector('#open-modal')
-        const modal = document.querySelector("#modal");
-        const fade = document.querySelector("#fade");
+  methods: {
+    toggleModal() {
+      const modal = document.querySelector("#modal");
+      const fade = document.querySelector("#fade");
 
-        modal.classList.toggle("hide");
-        fade.classList.toggle("hide");
+      modal.classList.toggle("hide");
+      fade.classList.toggle("hide");
     },
     anterior() {
-          this.dataAtual.setDate(this.dataAtual.getDate() - 1)
-          this.atualizaData()
-        },
-        proximo() {
-          this.dataAtual.setDate(this.dataAtual.getDate() + 1)
-          this.atualizaData()
-        },
-        atualizaData() {
-          const hoje = new Date()
-          const dia = this.dataAtual.getDate()
-          const mes = this.dataAtual.getMonth() + 1
-          const ano = this.dataAtual.getFullYear()
-          if (this.dataAtual.toDateString() === hoje.toDateString()) {
-            this.$refs.data.textContent = 'Hoje'
-          } else {
-            this.$refs.data.textContent = `${dia}/${mes}/${ano}`
-          }
-        }
-      },
-      computed: {
-        formatarData() {
-          const hoje = new Date()
-          if (this.dataAtual.toDateString() === hoje.toDateString()) {
-            return 'Hoje'
-          } else {
-            const dia = this.dataAtual.getDate()
-            const mes = this.dataAtual.getMonth() + 1
-            const ano = this.dataAtual.getFullYear()
-            return `${dia}/${mes}/${ano}`
-          }
-        }
+      this.dataAtual.setDate(this.dataAtual.getDate() - 1)
+      this.atualizaData()
+    },
+    proximo() {
+      this.dataAtual.setDate(this.dataAtual.getDate() + 1)
+      this.atualizaData()
+    },
+    atualizaData() {
+      const hoje = new Date()
+      const dia = this.dataAtual.getDate()
+      const mes = this.dataAtual.getMonth() + 1
+      const ano = this.dataAtual.getFullYear()
+      if (this.dataAtual.toDateString() === hoje.toDateString()) {
+        this.$refs.data.textContent = 'Hoje'
+      } else {
+        this.$refs.data.textContent = `${dia}/${mes}/${ano}`
       }
+    }
+  },
+  computed: {
+    formatarData() {
+      const hoje = new Date()
+      if (this.dataAtual.toDateString() === hoje.toDateString()) {
+        return 'Hoje'
+      } else {
+        const dia = this.dataAtual.getDate()
+        const mes = this.dataAtual.getMonth() + 1
+        const ano = this.dataAtual.getFullYear()
+        return `${dia}/${mes}/${ano}`
+      }
+    }
+  }
 }
 </script>
 
 <style>
-
+section {
+  margin: auto;
+}
 
 button:hover {
   opacity: 1;
 }
 
-.row{
+.row {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 
 }
 
@@ -158,22 +121,22 @@ button:hover {
   margin-right: 5px;
 }
 
-#open-modal i{
+#open-modal i {
   font-size: 20px;
   margin-right: 10px;
 }
 
-.container{
+.container {
   margin-top: 80px;
 }
 
-.content{
+.content {
   display: flex;
   flex-direction: row;
   height: 78vh;
 }
 
-.container-data{
+.container-data {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -181,19 +144,23 @@ button:hover {
   margin: 20px;
 }
 
-.container-data button{
+.container-data button {
   background: none;
   border: none;
   font-size: 25px;
   cursor: pointer;
+  color: #4D72D6;
 }
 
-.container-data span{
+.container-data span {
   margin: 0 30px;
   font-size: 1.5em;
+  font-weight: bold;
 }
 
-.main-content{
+
+
+.main-content {
   border-radius: 20px;
   width: 100%;
   background-color: white;
@@ -202,7 +169,7 @@ button:hover {
   height: 78vh;
 }
 
-.boxHeader{
+.boxHeader {
   margin-top: 15px;
   margin-bottom: 10px;
   display: flex;
@@ -210,243 +177,32 @@ button:hover {
   justify-content: center;
 }
 
-.titulo{
+.titulo {
   color: #4D72D6;
   font-size: 1.2em;
   margin-left: 10px;
 }
 
-.main-content h1{
+.main-content h1 {
   color: #4D72D6;
   margin-top: 150px;
   margin-bottom: 20px;
 }
 
-.boxContent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-main.table {
-  width: 100%;
-  height: 78vh;
-  
-  margin-bottom: 20px;
-
- 
-  border-radius: .8rem;
-
-  overflow: hidden;
-}
-
-
-.table__body {
-width: 95%;
-height: 78vh;
-
-
-margin: .8rem auto;
-border-radius: .8rem;
-
-overflow: auto;
-overflow: overlay;
-}
-
-.table__header {
-  width: 100%;
-  height: 10%;
-  background-color: #fff4;
-  padding: .8rem 1rem;
-
+.boxContent {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-}
-
-.table__header .input-group {
-  width: 35%;
-  height: 100%;
-  background-color: #fff5;
-  padding: 15px;
-  border-radius: 2rem;
-
-  display: flex;
   justify-content: center;
-  align-items: center;
-
-  transition: .2s;
-}
-
-.table__header .input-group:hover {
-  width: 45%;
-  background-color: #fff8;
-  box-shadow: 0 .1rem .4rem #0002;
-}
-
-.table__header .input-group img {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
-.table__header .input-group input {
-  width: 100%;
-  padding: 0 .5rem 0 .3rem;
-  background-color: transparent;
-  border: none;
-  outline: none;
+  height: 78vh;
 }
 
 
-.table__body::-webkit-scrollbar{
-width: 0.5rem;
-height: 0.5rem;
-}
-
-.table__body::-webkit-scrollbar-thumb{
-border-radius: .5rem;
-background-color: #0004;
-visibility: hidden;
-}
-
-.table__body:hover::-webkit-scrollbar-thumb{ 
-visibility: visible;
-}
-
-table {
-width: 100%;
-}
-
-td img {
-width: 36px;
-height: 36px;
-margin-right: .5rem;
-border-radius: 50%;
-
-vertical-align: middle;
-}
-
-table, th, td {
-border-collapse: collapse;
-padding: 1rem;
-text-align: center;
-}
-
-thead th {
-position: sticky;
-top: 0;
-left: 0;
-background-color: #d5d1defe;
-cursor: pointer;
-text-align: center;
-text-transform: capitalize;
-}
-
-tbody tr:nth-child(even) {
-background-color: #0000000b;
-}
-
-tbody tr {
---delay: .1s;
-transition: .5s ease-in-out var(--delay), background-color 0s;
-}
-
-tbody tr.hide {
-opacity: 0;
-transform: translateX(100%);
-}
-
-tbody tr:hover {
-background-color: #fff6 !important;
-}
-
-tbody tr td,
-tbody tr td p,
-tbody tr td img {
-transition: .2s ease-in-out;
-}
-
-tbody tr.hide td,
-tbody tr.hide td p {
-padding: 0;
-font: 0 / 0 sans-serif;
-transition: .2s ease-in-out .5s;
-}
-
-tbody tr.hide td img {
-width: 0;
-height: 0;
-transition: .2s ease-in-out .5s;
-}
-
-.status {
-  padding: 5px;
-  border-radius: 10px;
-text-align: center;
-}
-
-.status.aguardando{
-  background-color: #c261ff;
-  color: #8800DC;
-}
-
-.status.atendendo{
-  background-color: rgb(96, 170, 255);
-  color: rgb(0, 38, 255);
-}
-
-.status.concluido{
-  background-color: rgb(144, 255, 144);
-  color: green;
-}
-
-.status.cancelado{
-  background-color: rgb(255, 169, 169);
-  color: red;
-}
-
-thead th span.icon-arrow {
-display: inline-block;
-width: 1.3rem;
-height: 1.3rem;
-border-radius: 50%;
-border: 1.4px solid transparent;
-
-text-align: center;
-font-size: 1rem;
-
-margin-left: .5rem;
-transition: .2s ease-in-out;
-}
-
-thead th:hover span.icon-arrow{
-border: 1.4px solid #6c00bd;
-}
-
-thead th:hover {
-color: #6c00bd;
-}
-
-thead th.active span.icon-arrow{
-background-color: #6c00bd;
-color: #fff;
-}
-
-thead th.asc span.icon-arrow{
-transform: rotate(180deg);
-}
-
-thead th.active,tbody td.active {
-color: #6c00bd;
-}
-
-.gif{
+.gif {
   width: 280px;
 }
 
-.left-content{
+.left-content {
   margin-left: 20px;
   border-radius: 20px;
   width: 28%;
@@ -459,85 +215,85 @@ color: #6c00bd;
   gap: 30px;
 }
 
-.left-content .gif{
+.left-content .gif {
   width: 50%;
 }
 
-.left-content h2{
+.left-content h2 {
   color: #5177E0;
 }
 
-.left-content h3{
+.left-content h3 {
   color: #868585;
   text-align: center;
 }
 
 /* ===== MEDIA QUERIES=====*/
 
-@media (max-width: 1000px){
-  td:not(:first-of-type){
+@media (max-width: 1000px) {
+  td:not(:first-of-type) {
     min-width: rem;
   }
 }
 
-@media screen and (min-width: 768px){
-  body{
+@media screen and (min-width: 768px) {
+  body {
     margin: calc(var(--header-height) + 1rem) 0 0 0;
     padding-left: calc(var(--nav-width) + 2rem);
   }
+
   /*Show navbar desktop*/
-  .show{
+  .show {
     width: calc(var(--nav-width) + 156px);
   }
 
   /*Add padding body desktop*/
-  .body-pd{
+  .body-pd {
     padding-left: calc(var(--nav-width) + 160px);
   }
 }
 
 
 
-@media screen and (max-width: 901px){
+@media screen and (max-width: 901px) {
 
-  .content{
+  .content {
     flex-direction: column;
   }
 
-  main.table{
+  main.table {
     width: 85vw;
   }
 
-  .left-content{
+  .left-content {
     margin-top: 20px;
     width: 100%;
     margin-left: 0px;
   }
 
-  .left-content h1{
+  .left-content h1 {
     color: #5177E0;
     margin-top: 20px;
     margin-bottom: 100px;
   }
 
-  .left-content h3{
+  .left-content h3 {
     color: #868585;
     margin-left: 10px
   }
 }
 
-@media screen and (max-width: 370px){
-  #open-modal{
+@media screen and (max-width: 370px) {
+  #open-modal {
     padding: 5px;
     width: 10em;
   }
 }
 
-@media screen and (max-width: 370px){
-  #open-modal{
+@media screen and (max-width: 370px) {
+  #open-modal {
     padding: 5px;
     width: 150px;
   }
 }
-
 </style>

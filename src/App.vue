@@ -1,6 +1,6 @@
 <template>
-  <Navbar/>
-  <router-view/>
+  <Navbar />
+  <router-view />
 </template>
 
 
@@ -8,9 +8,9 @@
 
 import Navbar from './components/Navbar.vue';
 
-export default{
+export default {
   name: 'App',
-  components:{
+  components: {
     Navbar
   }
 }

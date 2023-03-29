@@ -1,84 +1,84 @@
 <template>
- <div id="fade" class="hide"></div>
-<div id="modal" class="hide">
+  <div id="fade" class="hide"></div>
+  <div id="modal" class="hide">
     <div class="modal-header">
-        <i class="fa-solid fa-calendar-days"></i>
-        <h2>Agendamento</h2>
+      <i class="fa-solid fa-calendar-days"></i>
+      <h2>Agendamento</h2>
     </div>
     <div class="modal-body">
       <form>
         <div class="inputs ">
           <div class="form-inputs">
-              <label for="nome_cliente">Cliente</label>
-              <input type="text" placeholder="Nome do Cliente" name="nome_cliente">
+            <label for="nome_cliente">Cliente</label>
+            <input type="text" placeholder="Nome do Cliente" name="nome_cliente">
           </div>
           <div class="form-inputs">
-              <label for="nome_pet">Pet</label>
-              <input type="text" placeholder="Nome do Pet" name="nome_pet" list="faixa3">
-              <datalist id="faixa3">
-                <option value="">Pet</option>
-                <option>Pet 01</option>
-                <option>Pet 02</option>
-                <option>Pet 03</option>
-              </datalist>
+            <label for="nome_pet">Pet</label>
+            <input type="text" placeholder="Nome do Pet" name="nome_pet" list="faixa3">
+            <datalist id="faixa3">
+              <option value="">Pet</option>
+              <option>Pet 01</option>
+              <option>Pet 02</option>
+              <option>Pet 03</option>
+            </datalist>
           </div>
         </div>
         <div class="inputs ">
-            <div class="form-inputs">
-              <label for="raca">Raça</label>
-              <input type="text" placeholder="Raça" name="raca" list="faixa4">
-              <datalist id="faixa4"> 
-                <option value="">Nome</option>
-                <option>Raça1</option>
-                <option>Raça2</option>
-                <option>Raça3</option>  
-              </datalist>
+          <div class="form-inputs">
+            <label for="raca">Raça</label>
+            <input type="text" placeholder="Raça" name="raca" list="faixa4">
+            <datalist id="faixa4">
+              <option value="">Nome</option>
+              <option>Raça1</option>
+              <option>Raça2</option>
+              <option>Raça3</option>
+            </datalist>
           </div>
           <div class="form-inputs">
-              <label for="servico">Serviço</label>
-              <input type="text" placeholder="Serviços" name="servico" list="faixa2">
-              <datalist id="faixa2">
-                <option value="">Servico</option>
-                <option>Banho</option>
-                <option>Tosa</option>
-                <option>Banho e Tosa</option>
-              </datalist>
+            <label for="servico">Serviço</label>
+            <input type="text" placeholder="Serviços" name="servico" list="faixa2">
+            <datalist id="faixa2">
+              <option value="">Servico</option>
+              <option>Banho</option>
+              <option>Tosa</option>
+              <option>Banho e Tosa</option>
+            </datalist>
           </div>
         </div>
         <div class="inputs">
-            <div class="form-inputs">
-              <label for="data">Data</label>
-              <input type="date" placeholder="Data" name="data">
+          <div class="form-inputs">
+            <label for="data">Data</label>
+            <input type="date" placeholder="Data" name="data">
           </div>
           <div class="form-inputs">
-              <label for="hora">Hora</label>
-              <input type="time" placeholder="Hora" name="hora">
+            <label for="hora">Hora</label>
+            <input type="time" placeholder="Hora" name="hora">
           </div>
         </div>
         <div class="modal-footer">
-           
-            <button type="button" v-on:click="toggleModal" id="close-modal" class="close">Fechar</button>
-            <button v-on:click="toggleModal" type="submit" class="confirm">Confirmar</button>
+
+          <button type="button" v-on:click="toggleModal" id="close-modal" class="close">Fechar</button>
+          <button v-on:click="toggleModal" type="submit" class="confirm">Confirmar</button>
         </div>
       </form>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
-  export default{
-    name: "Modal",
-    methods:{
-      toggleModal(){
-        const close = document.querySelector('#close-modal')
-        const modal = document.querySelector("#modal");
-        const fade = document.querySelector("#fade");
+export default {
+  name: "Modal",
+  methods: {
+    toggleModal() {
+      const close = document.querySelector('#close-modal')
+      const modal = document.querySelector("#modal");
+      const fade = document.querySelector("#fade");
 
-        modal.classList.toggle("hide");
-        fade.classList.toggle("hide");
-      }
+      modal.classList.toggle("hide");
+      fade.classList.toggle("hide");
     }
   }
+}
 </script>
 
 <style>
@@ -110,7 +110,7 @@
   transition: 0.5s;
   opacity: 1;
   pointer-events: all;
-  
+
 }
 
 .modal-header {
@@ -128,7 +128,7 @@
   font-size: 30px;
 }
 
-.modal-footer{
+.modal-footer {
   margin-top: 1rem;
   border-top: 1px solid #ccc;
   display: flex;
@@ -136,7 +136,7 @@
   align-items: center;
 }
 
-.modal-footer button{
+.modal-footer button {
   margin: 20px 0px 10px;
   padding: 0.6rem 1.2rem;
   background-color: #888;
@@ -148,11 +148,11 @@
   font-size: 1rem;
 }
 
-.modal-footer .confirm{
+.modal-footer .confirm {
   background-color: #010d55;
 }
 
-.modal-footer .close{
+.modal-footer .close {
   background-color: #9e0101;
 }
 
@@ -161,12 +161,12 @@
 }
 
 
-form{
+form {
   display: flex;
   flex-direction: column;
 }
 
-.inputs{
+.inputs {
   display: flex;
   flex-direction: row;
   gap: 50px;
@@ -179,11 +179,11 @@ form{
   flex-direction: column;
 }
 
-.form-inputs label{
+.form-inputs label {
   color: white;
 }
 
-.form-inputs input{
+.form-inputs input {
   width: 220px;
   height: 35px;
   border: none;
@@ -194,7 +194,8 @@ form{
   background-color: #fff;
 }
 
-.form-inputs input[type=date], .form-inputs input[type=time]{
+.form-inputs input[type=date],
+.form-inputs input[type=time] {
   width: 220px
 }
 
@@ -208,26 +209,27 @@ form{
   top: 0;
 }
 
-@media screen and (max-width: 750px){
-  
-  .inputs{
+@media screen and (max-width: 750px) {
+
+  .inputs {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
 
-  .form-inputs input, .form-inputs input[type=date], .form-inputs input[type=time]{
+  .form-inputs input,
+  .form-inputs input[type=date],
+  .form-inputs input[type=time] {
     width: 250px;
   }
 
 }
 
-@media screen and (max-width: 350px){
+@media screen and (max-width: 350px) {
 
-#modal{
+  #modal {
     position: absolute;
     margin-top: 3rem;
+  }
 }
-}
-
 </style>
