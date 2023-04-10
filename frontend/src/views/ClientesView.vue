@@ -24,7 +24,6 @@ import titulo from "@/components/titulo.vue";
 import botao from "@/components/botao.vue";
 import tabela from "@/components/tabela.vue";
 import modal from "@/components/Modal.vue";
-import { ref } from "vue";
 import ApiController from "@/ApiController";
 
 export default {
@@ -39,18 +38,6 @@ export default {
     return {
       topoTabela: ["ID","NOME", "PETS", "CPF" , "TELEFONE", "AÇOES"],
       dadosTabela: []
-    };
-  },
-  setup() {
-    const formActive = ref(false);
-
-    const toggleForm = (id = false) => {
-      formActive.value = !formActive.value;
-    };
-
-    return {
-      formActive,
-      toggleForm,
     };
   },
   mounted(){

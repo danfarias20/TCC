@@ -31,7 +31,6 @@ import botao from "@/components/botao.vue";
 import calendario from "@/components/agenda/calendario.vue";
 import agendamentoSelecionado from "@/components/agenda/agendamentoSelecionado.vue";
 import tabela from "@/components/tabela.vue";
-import { ref } from "vue";
 
 export default {
   name: "Agenda",
