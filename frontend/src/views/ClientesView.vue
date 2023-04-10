@@ -23,7 +23,7 @@
 
 <script>
 import titulo from "@/components/titulo.vue";
-import botao from "@/components/botaoCadastrar.vue";
+import botao from "@/components/botaoCadastrar.vue ";
 import tabela from "@/components/tabela.vue";
 import modal from "@/components/Modal.vue";
 import ApiController from "@/ApiController";
