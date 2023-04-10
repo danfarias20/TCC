@@ -6,13 +6,15 @@
         <botao :type="'Novo Cliente'" :icon="'fa-plus'" />
       </div>
       <div class="content">
-        <div class="main-content">
-          <modal :titulo="'Cadastrar Cliente'" :icon="'fa-user'" />
+        <div class="main-content" >
           <div class="input-group">
             <input type="search" placeholder="Pesquisar" />
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-          <tabela :header="topoTabela" :dados="dadosTabela" />
+          <div class="cliente">
+            <modal :titulo="'Cadastrar Cliente'" :icon="'fa-user'" />
+            <tabela :header="topoTabela" :dados="dadosTabela" />
+          </div>
         </div>
       </div>
     </div>
@@ -21,7 +23,7 @@
 
 <script>
 import titulo from "@/components/titulo.vue";
-import botao from "@/components/botao.vue";
+import botao from "@/components/botaoCadastrar.vue";
 import tabela from "@/components/tabela.vue";
 import modal from "@/components/Modal.vue";
 import ApiController from "@/ApiController";
@@ -79,5 +81,12 @@ export default {
   border: none;
   outline: none;
   font-size: 18px;
+
+}
+
+.cliente {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

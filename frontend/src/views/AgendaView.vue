@@ -27,7 +27,7 @@
 <script>
 import Modal from "@/components/Modal.vue";
 import titulo from "@/components/titulo.vue";
-import botao from "@/components/botao.vue";
+import botao from "@/components/botaoCadastrar.vue";
 import calendario from "@/components/agenda/calendario.vue";
 import agendamentoSelecionado from "@/components/agenda/agendamentoSelecionado.vue";
 import tabela from "@/components/tabela.vue";
