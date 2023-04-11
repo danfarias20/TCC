@@ -1,5 +1,4 @@
 <template>
-
     <div class="container-data">
       <button id="botao-anterior" @click="anterior">
         <i class="fa-solid fa-circle-chevron-left"></i>

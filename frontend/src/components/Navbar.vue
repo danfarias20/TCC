@@ -1,7 +1,7 @@
 <template>
   <header class="header" id="header">
     <div class="header__toggle">
-      <i class='bx bx-menu' id="header-toggle" v-on:click="ola"></i>
+      <i class='bx bx-menu' id="header-toggle"></i>
     </div>
 
     <div class="header__img">
@@ -87,32 +87,6 @@
 <script>
 export default {
   name: 'Nav',
-  methods: {
-
-
-    showNavbar(toggleId, navId, headerId, bodyId) {
-      const toggle = document.getElementById(toggleId),
-        nav = document.getElementById(navId),
-        headerpd = document.getElementById(headerId),
-        body = document.getElementById(bodyId)
-
-      if (toggle && nav && headerpd) {
-        // show navbar
-        nav.classList.toggle('open')
-        // change icon
-        toggle.classList.toggle('bx-x')
-
-        headerpd.classList.toggle('body-pd')
-
-        body.classList.toggle('body-pd')
-      }
-    },
-    ola() {
-      const toggle = document.getElementById('header-toggle')
-
-      toggle.addEventListener('click', this.showNavbar('header-toggle', 'nav-bar', 'header', 'body-pd'))
-    },
-  }
 }
 
 

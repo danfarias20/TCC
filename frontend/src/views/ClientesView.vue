@@ -6,15 +6,13 @@
         <botao :type="'Novo Cliente'" :icon="'fa-plus'" />
       </div>
       <div class="content">
-        <div class="main-content" >
+        <div class="main-content cliente" >
           <div class="input-group">
             <input type="search" placeholder="Pesquisar" />
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-          <div class="cliente">
             <modal :titulo="'Cadastrar Cliente'" :icon="'fa-user'" />
             <tabela :header="topoTabela" :dados="dadosTabela" />
-          </div>
         </div>
       </div>
     </div>
@@ -23,7 +21,7 @@
 
 <script>
 import titulo from "@/components/titulo.vue";
-import botao from "@/components/botaoCadastrar.vue ";
+import botao from "@/components/botaoCadastrar.vue";
 import tabela from "@/components/tabela.vue";
 import modal from "@/components/Modal.vue";
 import ApiController from "@/ApiController";
@@ -65,11 +63,8 @@ export default {
   transition: 0.2s;
   box-shadow: 0 0.1rem 0.4rem #0002;
   border: 0.5px solid #949292;
-}
-
-.input-group:hover {
-  width: 30%;
-  background-color: #fff8;
+  position: relative;
+  right: 36%;
 }
 
 .input-group input {

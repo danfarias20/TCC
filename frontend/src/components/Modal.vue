@@ -1,5 +1,5 @@
 <template>
-  <div id="fade" class="hide"></div>
+  <div id="fade" class="hide" ></div>
   <div id="modal" class="hide">
     <div class="modal-header">
       <i :class="['fa regular', icon]"></i>
@@ -60,7 +60,6 @@
 </template>
 
 <script>
-import titulo from "@/components/titulo.vue";
 export default {
   name: "Modal",
   methods: {
