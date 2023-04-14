@@ -3,17 +3,18 @@
     <div class="container">
       <div class="row">
         <titulo :type="'Agenda'" />
-        <botao
-          :type="'Novo Agendamento'"
-          :icon="'fa-calendar-plus'"
-        />
+        <botao :type="'Novo Agendamento'" :icon="'fa-calendar-plus'" />
       </div>
       <div class="content">
         <div class="main-content">
-          <Modal :titulo="'Novo Agendamento'" :icon="'fa-calendar-plus'"/>
+          <Modal
+            :tipo="'agendamento'"
+            :icon="'fa-calendar-plus'"
+            :mostrarInputsAgendamento="true"
+          />
           <div class="boxContent">
             <calendario />
-            <tabela :header="topoTabela" :dados="dadosTabela"/>
+            <tabela :header="topoTabela" :dados="dadosTabela" />
           </div>
         </div>
         <div class="left-content">
@@ -53,10 +54,10 @@ export default {
           raça: "Husky",
           valor: "20.00",
           status: "cancelado",
-        }
-      ]
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
@@ -64,7 +65,6 @@ export default {
 section {
   margin: auto;
 }
-
 
 .row {
   display: flex;
@@ -221,6 +221,4 @@ section {
     margin-left: 10px;
   }
 }
-
-
 </style>

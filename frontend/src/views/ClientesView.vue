@@ -6,13 +6,17 @@
         <botao :type="'Novo Cliente'" :icon="'fa-plus'" />
       </div>
       <div class="content">
-        <div class="main-content cliente" >
+        <div class="main-content cliente">
           <div class="input-group">
             <input type="search" placeholder="Pesquisar" />
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-            <modal :titulo="'Cadastrar Cliente'" :icon="'fa-user'" />
-            <tabela :header="topoTabela" :dados="dadosTabela" />
+          <modal
+            :tipo="'cliente'"
+            :icon="'fa-user'"
+            :mostrarInputsCadastro="true"
+          />
+          <tabela :header="topoTabela" :dados="dadosTabela" />
         </div>
       </div>
     </div>
@@ -36,17 +40,19 @@ export default {
   },
   data() {
     return {
-      topoTabela: ["ID","NOME", "PETS", "CPF" , "TELEFONE", "AÇOES"],
-      dadosTabela: []
+      topoTabela: ["ID", "NOME", "PETS", "CPF", "TELEFONE", "AÇOES"],
+      dadosTabela: [],
     };
   },
-  mounted(){
-    ApiController.getClientes().then(clientes => {
-      this.dadosTabela = clientes;
-    }).catch (error => {
-      console.error('Erro ao buscar os clientes: ', error);
-    });
-  }
+  mounted() {
+    ApiController.getClientes()
+      .then((clientes) => {
+        this.dadosTabela = clientes;
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar os clientes: ", error);
+      });
+  },
 };
 </script>
 
@@ -76,7 +82,6 @@ export default {
   border: none;
   outline: none;
   font-size: 18px;
-
 }
 
 .cliente {

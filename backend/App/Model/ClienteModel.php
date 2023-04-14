@@ -8,7 +8,9 @@ final class ClienteModel{
 
     private $nome;
 
-    private $email;
+    private $pets;
+
+    private $cpf;
 
     private $telefone;
 
@@ -30,14 +32,24 @@ final class ClienteModel{
         return $this;
     }
 
-    public function getEmail(): string{
-        return $this->email;
+    public function getPets(): string{
+        return $this->pets;
     }
 
-    public function setEmail(string $email): ClienteModel{
-        $this->email = $email;
+    public function setPets(string $pets): ClienteModel{
+        $this->pets = $pets;
         return $this;
     }
+
+    public function getCpf(): string{
+        return $this->cpf;
+    }
+
+    public function setCpf(string $cpf): ClienteModel{
+        $this->cpf = $cpf;
+        return $this;
+    }
+
 
     public function getTelefone(): string{
         return $this->telefone;

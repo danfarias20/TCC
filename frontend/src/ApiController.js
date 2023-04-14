@@ -10,5 +10,14 @@ export default{
             console.error('Erro ao buscar o cliente: ', error);
             throw error;
         })
+    },
+
+    async cadastrarCliente(cliente){
+        const url = `${API_URL}/inserir`;
+        return axios.post(url, cliente).then(response => response.data)
+        .catch(error =>{
+            console.error('Erro ao cadastrar o cliente: ', error);
+            throw error;
+        })
     }
 }
