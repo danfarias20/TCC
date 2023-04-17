@@ -33,7 +33,6 @@ export default {
   font-size: 1.1rem;
   margin-bottom: 15px;
   margin-right: 5px;
-  box-shadow: 0 1px 2px 0 #000000;
   transition: 0.2s all;
 }
 

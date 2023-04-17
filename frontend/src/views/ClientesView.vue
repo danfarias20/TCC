@@ -15,6 +15,7 @@
             :tipo="'cliente'"
             :icon="'fa-user'"
             :mostrarInputsCadastro="true"
+           
           />
           <tabela :header="topoTabela" :dados="dadosTabela" />
         </div>
@@ -53,6 +54,11 @@ export default {
         console.error("Erro ao buscar os clientes: ", error);
       });
   },
+  methods: {
+    atualizarTabela(novoCliente){
+      this.dadosTabela.push(novoCliente)
+    }
+  }
 };
 </script>
 

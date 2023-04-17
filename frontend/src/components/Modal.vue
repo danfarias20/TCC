@@ -5,43 +5,38 @@
       <i :class="['fa regular', icon]"></i>
       <h2>{{ titulo }}</h2>
     </div>
+
     <div class="modal-body">
-
+      <form @submit.prevent="submitForm">
         <div class="inputs">
-
-          <!-- Inputs para formulario de cadastro de clientes-->
-          <inputsForm :type="'text'" :label="'Nome'" v-model="nome" v-if="mostrarInputsCadastro" />
-          <inputsForm :type="'number'" :label="'Pets'" v-model=" qtd_pets" v-if="mostrarInputsCadastro" />
-          <inputsForm :type="'text'" :label="'Cpf'" v-model="cpf" v-if="mostrarInputsCadastro" />
-          <inputsForm :type="'text'" :label="'Telefone'" v-model="telefone" v-if="mostrarInputsCadastro" />
-         
-
-          <!-- Inputs para formulario de Agendamento-->
-          <inputsForm :type="'text'" :label="'Nome Cliente'" v-model="nome_Cliente" v-if="mostrarInputsAgendamento" />
-          <inputsForm :type="'text'" :label="'Pet'" v-model="nome_Pet" v-if="mostrarInputsAgendamento" />
-          <inputsForm :type="'text'" :label="'Raça'" v-model="raca_animal" v-if="mostrarInputsAgendamento" />
-          <inputsForm :type="'text'" :label="'Serviço'" v-model="serviço" v-if="mostrarInputsAgendamento" />
-
+          <BaseInput :modelValue="clientes.nome" @update:modelValue="newValue => clientes.nome = newValue" :label="'Nome'"
+            v-if="mostrarInputsCadastro" />
+          <BaseInput :modelValue="clientes.qtd_pets" @update:modelValue="newValue => clientes.qtd_pets = newValue" :label="'Pets'"
+            v-if="mostrarInputsCadastro" />
+            <BaseInput :modelValue="clientes.cpf" @update:modelValue="newValue => clientes.cpf = newValue" :label="'Cpf'"
+            v-if="mostrarInputsCadastro" />
+            <BaseInput :modelValue="clientes.telefone" @update:modelValue="newValue => clientes.telefone = newValue" :label="'telefone'"
+            v-if="mostrarInputsCadastro" />
         </div>
         <div class="modal-footer">
           <button type="button" v-on:click="toggleModal" id="close-modal" class="close">
             Fechar
           </button>
-          <button type="submit" class="confirm" v-on:click="salvar">
+          <button type="submit" class="confirm">
             {{ botaoConfirm }}
           </button>
         </div>
-  
+      </form>
     </div>
   </div>
 </template>
 
 <script>
 import ApiController from "@/ApiController";
-import inputsForm from "./inputsForm.vue";
+import BaseInput from "./BaseInput.vue";
 
 export default {
-  name: "Modal",
+
   props: {
     tipo: {
       type: String,
@@ -59,18 +54,18 @@ export default {
     },
   },
   components: {
-    inputsForm,
+    BaseInput,
   },
   data() {
     return {
-      titulo:
-        this.tipo === "cliente" ? "Cadastro de Cliente" : "Novo Agendamento",
+      clientes: {
+        nome: '',
+        qtd_pets: '',
+        cpf: '',
+        telefone: ''
+      },
+      titulo: this.tipo === "cliente" ? "Cadastro de Cliente" : "Novo Agendamento",
       botaoConfirm: this.tipo === "cliente" ? "Cadastrar" : "Agendar",
-      nome: "",
-      qtd_pets: "",
-      cpf: "",
-      telefone: "",
-      clientes: {},
     };
   },
   methods: {
@@ -80,15 +75,11 @@ export default {
       modal.classList.toggle("hide");
       fade.classList.toggle("hide");
     },
-    salvar() {
+    submitForm() {
       if (this.tipo === "cliente") {
-        const cliente = {
-          nome: this.nome,
-          qtd_pets: this.qtd_pets,
-          cpf: this.cpf,
-          telefone: this.telefone,
-        };
-        ApiController.cadastrarCliente(cliente);
+        ApiController.cadastrarCliente(this.clientes);
+        this.$emit('cliente-cadastrado');
+    
       } else if (this.tipo === "agendamento") {
         console.log("Agendamento realizado");
       }

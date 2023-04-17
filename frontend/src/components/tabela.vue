@@ -65,7 +65,7 @@ export default {
 <style>
 main.table {
     width: 100%;
-    height: 78vh;
+    height: 100vh;
 
     margin-bottom: 20px;
 
@@ -76,7 +76,7 @@ main.table {
 
 .table__body {
     width: 95%;
-    height: 78vh;
+    height: 65vh;
 
     margin: 0.8rem auto;
     border-radius: 0.8rem;
